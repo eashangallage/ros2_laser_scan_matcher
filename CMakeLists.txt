@@ -13,6 +13,7 @@ find_package(rcutils REQUIRED)
 find_package(PkgConfig)
 find_package(csm REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 find_package(Boost COMPONENTS thread REQUIRED)
 
@@ -44,5 +45,10 @@ ament_target_dependencies(laser_scan_matcher
 
 install(TARGETS laser_scan_matcher DESTINATION lib/${PROJECT_NAME})
 
+# Install launch files.
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+)
 
 ament_package()
